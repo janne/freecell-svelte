@@ -9,8 +9,8 @@
 <style type="scss">
   div {
     display: flex;
-    width: 7vw;
-    height: 10vw;
+    width: 6vw;
+    height: 9vw;
   }
 
   .empty {

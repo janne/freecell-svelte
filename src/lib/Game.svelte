@@ -27,25 +27,25 @@
 <style type="scss">
   .game {
     display: flex;
-    background-color: #131;
-    width: 100vw;
+    max-width: 1280px;
     height: 100vh;
     flex-direction: column;
 
     .top {
-      padding: 20px;
+      padding: 20px 0;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      gap: 40px;
 
       .freecells {
         display: flex;
-        gap: 20px;
+        gap: 10px;
       }
 
       .homecells {
         display: flex;
-        gap: 20px;
+        gap: 10px;
       }
     }
   }

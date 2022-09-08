@@ -15,7 +15,7 @@
 <style type="scss">
   .tableau {
     display: flex;
-    width: 100wv;
+    max-width: 100%;
     flex-direction: row;
     justify-content: space-around;
   }
