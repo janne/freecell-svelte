@@ -46,13 +46,13 @@
     display: flex;
     width: 6vw;
     height: 10vw;
-    background-color: white;
+    background-color: #eee;
     font-size: 2.2vw;
     font-weight: bold;
     border: 1px solid black;
     border-radius: 0.5vw;
     padding: 0.5vw;
-    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 
     &.black {
       color: black;
@@ -64,11 +64,6 @@
 
     &.clickable {
       cursor: pointer;
-    }
-
-    &.clickable:hover {
-      background-color: #eee;
-      box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     }
   }
 </style>
