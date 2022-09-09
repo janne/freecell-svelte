@@ -43,13 +43,6 @@
 </div>
 
 <style type="scss">
-  .black {
-    color: black;
-  }
-
-  .red {
-    color: red;
-  }
   .card {
     overflow: hidden;
     display: flex;
@@ -61,9 +54,22 @@
     border: 1px solid black;
     border-radius: 0.5vw;
     padding: 0.5vw;
-  }
+    transition: all 0.1s ease-in-out;
 
-  .clickable {
-    cursor: pointer;
+    &.black {
+      color: black;
+    }
+
+    &.red {
+      color: red;
+    }
+
+    &.clickable {
+      cursor: pointer;
+    }
+
+    &.clickable:hover {
+      transform: scale(1.1);
+    }
   }
 </style>
