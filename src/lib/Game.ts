@@ -36,8 +36,24 @@ export function removeCardFromGame(newCard: Card, game: Game): Game {
   return newGame;
 }
 
-export function addCardInHome(card: Card, game: Game) {
+export function addCardInHome(card: Card, game: Game): Game {
   const newGame = { ...game };
-  newGame.homeCells[Math.floor(Math.random() * 4)].push(card);
-  return newGame;
+  if (card.rank === 1) {
+    const target = newGame.homeCells.find((column) => column.length === 0);
+    if (target) {
+      target.push(card);
+      return newGame;
+    }
+  }
+
+  const target = newGame.homeCells.find((column) => {
+    const lastCard = column[column.length - 1];
+    return lastCard.suit === card.suit && lastCard.rank + 1 === card.rank;
+  });
+  if (target) {
+    target.push(card);
+    return newGame;
+  }
+
+  return game;
 }
