@@ -44,23 +44,28 @@ export function addCardInHome(card: Card, game: Game): GameUpdater | null {
     const index = newGame.homeCells.findIndex((column) => column.length === 0);
     if (index != -1) {
       return (game: Game) => {
-        const cell = game.homeCells[index];
-        cell.push(card);
+        game.homeCells[index].push(card);
         return game;
       };
     }
   }
 
-  const target = newGame.homeCells.find((column) => {
+  const index = newGame.homeCells.findIndex((column) => {
     const lastCard = column[column.length - 1];
     return lastCard.suit === card.suit && lastCard.rank + 1 === card.rank;
   });
-  if (target) {
+  if (index != -1) {
     return (game: Game) => {
-      target.push(card);
+      game.homeCells[index].push(card);
       return newGame;
     };
   }
 
+  return null;
+}
+
+export function addCard(card: Card, game: Game): GameUpdater | null {
+  const fn = addCardInHome(card, game);
+  if (fn) return fn;
   return null;
 }

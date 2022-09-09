@@ -1,14 +1,14 @@
 <script lang="ts">
   import type { Card } from "./Deck";
   import FreeCell from "./FreeCell.svelte";
-  import { addCardInHome, createGame, removeCardFromGame } from "./Game";
+  import { addCard, createGame, removeCardFromGame } from "./Game";
   import HomeCell from "./HomeCell.svelte";
   import Tableau from "./Tableau.svelte";
 
   let game = createGame();
 
   function onClick(card: Card) {
-    const updateGame = addCardInHome(card, game);
+    const updateGame = addCard(card, game);
     if (updateGame) {
       game = updateGame(removeCardFromGame(card, game));
     }
