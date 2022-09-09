@@ -2,6 +2,7 @@
   import type { Card, Suit } from "./Deck";
 
   export let card: Card;
+  export let onClick: (card: Card) => void;
 
   function rank(rank: number): String {
     switch (rank) {
@@ -31,7 +32,7 @@
   }
 </script>
 
-<div class={["card", ["C", "S"].includes(card.suit) ? "black" : "red"].join(" ")}>
+<div class={["card", ["C", "S"].includes(card.suit) ? "black" : "red"].join(" ")} on:click={() => onClick(card)}>
   {rank(card.rank)}
   {suit(card.suit)}
 </div>
@@ -45,14 +46,16 @@
     color: red;
   }
   .card {
+    overflow: hidden;
     display: flex;
     width: 6vw;
-    height: 9vw;
+    height: 10vw;
     background-color: white;
-    font-size: 24px;
+    font-size: 2.2vw;
     font-weight: bold;
     border: 1px solid black;
-    border-radius: 4px;
-    padding: 4px;
+    border-radius: 0.5vw;
+    padding: 0.5vw;
+    cursor: pointer;
   }
 </style>

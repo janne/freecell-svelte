@@ -5,6 +5,7 @@
   import Space from "./Space.svelte";
 
   export let card: CardType | null;
+  export let onClick: (card: CardType) => void;
 </script>
 
 {#if !card}
@@ -12,5 +13,5 @@
 {/if}
 
 {#if card}
-  <Card {card} />
+  <Card {card} {onClick} />
 {/if}

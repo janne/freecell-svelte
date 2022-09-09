@@ -1,27 +1,34 @@
 <script lang="ts">
+  import type { Card } from "./Deck";
+
   import FreeCell from "./FreeCell.svelte";
   import { createGame } from "./Game";
   import HomeCell from "./HomeCell.svelte";
   import Tableau from "./Tableau.svelte";
 
-  const game = createGame();
+  let game = createGame();
+
+  function onClick(card: Card) {
+    game.homeCells[0].push(card);
+    game = game;
+  }
 </script>
 
 <div class="game">
   <div class="top">
     <div class="freecells">
       {#each game.freeCells as card}
-        <FreeCell {card} />
+        <FreeCell {card} {onClick} />
       {/each}
     </div>
 
     <div class="homecells">
       {#each game.homeCells as stack}
-        <HomeCell {stack} />
+        <HomeCell {stack} {onClick} />
       {/each}
     </div>
   </div>
-  <Tableau tableau={game.tableau} />
+  <Tableau tableau={game.tableau} {onClick} />
 </div>
 
 <style type="scss">
