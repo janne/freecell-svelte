@@ -7,9 +7,9 @@
 </script>
 
 <div class="column">
-  {#each stack as card}
+  {#each stack as card, i}
     <div class="card-wrapper">
-      <Card {card} {onClick} />
+      <Card {card} onClick={i == stack.length - 1 ? onClick : null} />
     </div>
   {/each}
 </div>
