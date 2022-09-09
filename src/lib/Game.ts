@@ -1,4 +1,4 @@
-import { createDeck, shuffleDeck, type Card } from "./Deck";
+import { createDeck, isBlack, shuffleDeck, type Card } from "./Deck";
 
 type Game = {
   freeCells: (Card | null)[];
@@ -39,9 +39,8 @@ export function removeCardFromGame(newCard: Card, game: Game): Game {
 type GameUpdater = (game: Game) => Game;
 
 export function addCardInHome(card: Card, game: Game): GameUpdater | null {
-  const newGame = { ...game };
   if (card.rank === 1) {
-    const index = newGame.homeCells.findIndex((column) => column.length === 0);
+    const index = game.homeCells.findIndex((column) => column.length === 0);
     if (index != -1) {
       return (game: Game) => {
         game.homeCells[index].push(card);
@@ -50,7 +49,7 @@ export function addCardInHome(card: Card, game: Game): GameUpdater | null {
     }
   }
 
-  const index = newGame.homeCells.findIndex((column) => {
+  const index = game.homeCells.findIndex((column) => {
     if (column.length == 0) return false;
     const lastCard = column[column.length - 1];
     return lastCard.suit === card.suit && lastCard.rank + 1 === card.rank;
@@ -58,9 +57,33 @@ export function addCardInHome(card: Card, game: Game): GameUpdater | null {
   if (index != -1) {
     return (game: Game) => {
       game.homeCells[index].push(card);
-      return newGame;
+      return game;
     };
   }
+  return null;
+}
+
+export function addCardInStack(card: Card, game: Game): GameUpdater | null {
+  const i = game.tableau.findIndex((column) => {
+    if (column.length == 0) return false;
+    const lastCard = column[column.length - 1];
+    return isBlack(lastCard) !== isBlack(card) && lastCard.rank === card.rank + 1;
+  });
+  if (i != -1) {
+    return (game: Game) => {
+      game.tableau[i].push(card);
+      return game;
+    };
+  }
+
+  const j = game.tableau.findIndex((column) => column.length === 0);
+  if (j != -1) {
+    return (game: Game) => {
+      game.tableau[j].push(card);
+      return game;
+    };
+  }
+
   return null;
 }
 
@@ -76,9 +99,8 @@ export function addCardInFreeCell(card: Card, game: Game): GameUpdater | null {
 }
 
 export function addCard(card: Card, game: Game): GameUpdater | null {
-  const fn1 = addCardInHome(card, game);
-  if (fn1) return fn1;
-  const fn2 = addCardInFreeCell(card, game);
-  if (fn2) return fn2;
-  return null;
+  return [addCardInHome, addCardInStack, addCardInFreeCell].reduce<GameUpdater | null>((memo, fn) => {
+    if (memo) return memo;
+    return fn(card, game);
+  }, null);
 }
