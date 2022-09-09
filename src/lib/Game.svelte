@@ -1,16 +1,20 @@
 <script lang="ts">
   import type { Card } from "./Deck";
   import FreeCell from "./FreeCell.svelte";
-  import { createGame, removeCardFromGame } from "./Game";
+  import { addCardInHome, createGame, removeCardFromGame } from "./Game";
   import HomeCell from "./HomeCell.svelte";
   import Tableau from "./Tableau.svelte";
 
   let game = createGame();
 
   function onClick(card: Card) {
-    game = removeCardFromGame(card, game);
-    game.homeCells[Math.floor(Math.random() * 4)].push(card);
-    game = game;
+    const newGame = removeCardFromGame(card, game);
+    const updatedGame = addCardInHome(card, newGame);
+
+    if (newGame !== updatedGame) {
+      game = newGame;
+      return;
+    }
   }
 </script>
 

@@ -21,16 +21,23 @@ export function createGame(): Game {
 }
 
 export function removeCardFromGame(newCard: Card, game: Game): Game {
-  game.homeCells.forEach((stack, i) => {
-    game.homeCells[i] = stack.filter((card) => card != newCard);
+  const newGame = { ...game };
+  newGame.homeCells.forEach((stack, i) => {
+    newGame.homeCells[i] = stack.filter((card) => card != newCard);
   });
-  game.tableau.forEach((stack, i) => {
-    game.tableau[i] = stack.filter((card) => card != newCard);
+  newGame.tableau.forEach((stack, i) => {
+    newGame.tableau[i] = stack.filter((card) => card != newCard);
   });
-  game.freeCells.forEach((card, i) => {
+  newGame.freeCells.forEach((card, i) => {
     if (card == newCard) {
-      game.freeCells[i] = null;
+      newGame.freeCells[i] = null;
     }
   });
-  return game;
+  return newGame;
+}
+
+export function addCardInHome(card: Card, game: Game) {
+  const newGame = { ...game };
+  newGame.homeCells[Math.floor(Math.random() * 4)].push(card);
+  return newGame;
 }
