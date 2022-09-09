@@ -1,27 +1,15 @@
 <script lang="ts">
   import type { Card } from "./Deck";
-
   import FreeCell from "./FreeCell.svelte";
-  import { createGame } from "./Game";
+  import { createGame, removeCardFromGame } from "./Game";
   import HomeCell from "./HomeCell.svelte";
   import Tableau from "./Tableau.svelte";
 
   let game = createGame();
 
-  function onClick(newCard: Card) {
-    game.homeCells.forEach((stack, i) => {
-      game.homeCells[i] = stack.filter((card) => card != newCard);
-    });
-    game.tableau.forEach((stack, i) => {
-      game.tableau[i] = stack.filter((card) => card != newCard);
-    });
-    game.freeCells.forEach((card, i) => {
-      if (card == newCard) {
-        game.freeCells[i] = null;
-      }
-    });
-    const stack = Math.floor(Math.random() * 4);
-    game.homeCells[stack].push(newCard);
+  function onClick(card: Card) {
+    game = removeCardFromGame(card, game);
+    game.homeCells[Math.floor(Math.random() * 4)].push(card);
     game = game;
   }
 </script>
