@@ -29,3 +29,7 @@ export function shuffleDeck(deck: Card[]) {
 export function deckToString(deck: Card[]): String {
   return deck.map((card) => `${card.rank}${card.suit}`).join(", ");
 }
+
+export function isBlack(card: Card): boolean {
+  return ["C", "S"].includes(card.suit);
+}

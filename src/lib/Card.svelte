@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Card, Suit } from "./Deck";
+  import { isBlack, type Card, type Suit } from "./Deck";
 
   export let card: Card;
   export let onClick: ((card: Card) => void) | null;
@@ -33,9 +33,7 @@
 </script>
 
 <div
-  class={["card", ["C", "S"].includes(card.suit) ? "black" : "red", ...[onClick == null ? [] : ["clickable"]]].join(
-    " "
-  )}
+  class={["card", isBlack(card) ? "black" : "red", ...[onClick == null ? [] : ["clickable"]]].join(" ")}
   on:click={() => onClick && onClick(card)}
 >
   {rank(card.rank)}
