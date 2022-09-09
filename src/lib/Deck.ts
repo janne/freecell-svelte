@@ -19,8 +19,8 @@ export function createDeck(): Card[] {
     .flat();
 }
 
-export function shuffleDeck(deck: Card[]) {
-  return deck.reduce((deck, card, i) => {
+export function shuffleDeck(deck: Card[]): Card[] {
+  return deck.reduce<Card[]>((deck, card, i) => {
     const pos = Math.floor(Math.random() * (i + 1));
     return [...deck.slice(0, pos), card, ...deck.slice(pos)];
   }, []);
