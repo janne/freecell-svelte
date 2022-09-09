@@ -8,8 +8,12 @@
 
   let game = createGame();
 
-  function onClick(card: Card) {
-    game.homeCells[0].push(card);
+  function onClick(newCard: Card) {
+    game.tableau.forEach((stack, i) => {
+      game.tableau[i] = stack.filter((card) => card != newCard);
+    });
+    const stack = Math.floor(Math.random() * 4);
+    game.homeCells[stack].push(newCard);
     game = game;
   }
 </script>
