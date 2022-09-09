@@ -8,12 +8,9 @@
   let game = createGame();
 
   function onClick(card: Card) {
-    const newGame = removeCardFromGame(card, game);
-    const updatedGame = addCardInHome(card, newGame);
-
-    if (newGame !== updatedGame) {
-      game = newGame;
-      return;
+    const updateGame = addCardInHome(card, game);
+    if (updateGame) {
+      game = updateGame(removeCardFromGame(card, game));
     }
   }
 </script>

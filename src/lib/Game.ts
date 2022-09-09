@@ -36,13 +36,18 @@ export function removeCardFromGame(newCard: Card, game: Game): Game {
   return newGame;
 }
 
-export function addCardInHome(card: Card, game: Game): Game {
+type GameUpdater = (game: Game) => Game;
+
+export function addCardInHome(card: Card, game: Game): GameUpdater | null {
   const newGame = { ...game };
   if (card.rank === 1) {
-    const target = newGame.homeCells.find((column) => column.length === 0);
-    if (target) {
-      target.push(card);
-      return newGame;
+    const index = newGame.homeCells.findIndex((column) => column.length === 0);
+    if (index != -1) {
+      return (game: Game) => {
+        const cell = game.homeCells[index];
+        cell.push(card);
+        return game;
+      };
     }
   }
 
@@ -51,9 +56,11 @@ export function addCardInHome(card: Card, game: Game): Game {
     return lastCard.suit === card.suit && lastCard.rank + 1 === card.rank;
   });
   if (target) {
-    target.push(card);
-    return newGame;
+    return (game: Game) => {
+      target.push(card);
+      return newGame;
+    };
   }
 
-  return game;
+  return null;
 }
