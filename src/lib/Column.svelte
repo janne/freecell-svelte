@@ -4,7 +4,7 @@
   import Space from "./Space.svelte";
 
   export let stack: CardType[];
-  export let onClick: (card: CardType) => void;
+  export let onClick: (card: CardType, count: number) => void;
 </script>
 
 <div class="column">
@@ -15,7 +15,7 @@
   {/if}
   {#each stack as card, i}
     <div class="card-wrapper">
-      <Card {card} onClick={i == stack.length - 1 ? onClick : null} />
+      <Card {card} onClick={(card) => onClick(card, stack.length - i)} />
     </div>
   {/each}
 </div>

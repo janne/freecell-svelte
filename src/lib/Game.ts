@@ -104,3 +104,51 @@ export function addCard(card: Card, game: Game): GameUpdater | null {
     return fn(card, game);
   }, null);
 }
+
+export function moveStack(card: Card, game: Game, count: number): GameUpdater | null {
+  const holes =
+    game.tableau.filter((column) => column.length === 0).length + game.freeCells.filter((cell) => cell === null).length;
+
+  if (count > holes + 1) return null;
+
+  const column = game.tableau.findIndex((column) => column.includes(card))!;
+  const index = game.tableau[column].findIndex((c) => c == card);
+  const cards = game.tableau[column].slice(index, index + count);
+
+  for (let i = 1; i < cards.length; i++) {
+    if (isBlack(cards[i]) === isBlack(cards[i - 1])) return null;
+    if (cards[i].rank !== cards[i - 1].rank - 1) return null;
+  }
+
+  const i = game.tableau.findIndex((column) => {
+    if (column.length == 0) return false;
+    const lastCard = column[column.length - 1];
+    return isBlack(lastCard) !== isBlack(card) && lastCard.rank === card.rank + 1;
+  });
+  if (i != -1) {
+    return (game: Game) => {
+      const cards = game.tableau[column].slice(index, index + count);
+      cards.forEach((card) => {
+        game.tableau[i].push(card);
+      });
+      game.tableau[column].splice(index, count);
+      return game;
+    };
+  }
+
+  if (count > holes) return null;
+
+  const j = game.tableau.findIndex((column) => column.length === 0);
+  if (j != -1) {
+    return (game: Game) => {
+      const cards = game.tableau[column].slice(index, index + count);
+      cards.forEach((card) => {
+        game.tableau[i].push(card);
+      });
+      game.tableau[column].splice(index, count);
+      return game;
+    };
+  }
+
+  return null;
+}

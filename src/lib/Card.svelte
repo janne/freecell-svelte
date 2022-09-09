@@ -2,7 +2,7 @@
   import { isBlack, type Card, type Suit } from "./Deck";
 
   export let card: Card;
-  export let onClick: ((card: Card) => void) | null;
+  export let onClick: (card: Card) => void;
 
   function rank(rank: number): String {
     switch (rank) {
@@ -34,7 +34,7 @@
 
 <div
   class={["card", isBlack(card) ? "black" : "red", ...[onClick == null ? [] : ["clickable"]]].join(" ")}
-  on:click={() => onClick && onClick(card)}
+  on:click={() => onClick(card)}
 >
   {rank(card.rank)}
   {suit(card.suit)}
@@ -52,7 +52,7 @@
     border: 1px solid black;
     border-radius: 0.5vw;
     padding: 0.5vw;
-    transition: all 0.1s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &.black {
       color: black;
@@ -67,7 +67,8 @@
     }
 
     &.clickable:hover {
-      transform: scale(1.1);
+      background-color: #eee;
+      box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     }
   }
 </style>
