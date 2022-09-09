@@ -6,7 +6,8 @@
 
 <style type="scss">
   .space {
-    outline: 4px solid grey;
+    outline: 4px solid #44a;
+    border: 1px solid #339;
     display: flex;
     width: 6vw;
     height: 10vw;
