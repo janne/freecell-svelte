@@ -9,8 +9,16 @@
   let game = createGame();
 
   function onClick(newCard: Card) {
+    game.homeCells.forEach((stack, i) => {
+      game.homeCells[i] = stack.filter((card) => card != newCard);
+    });
     game.tableau.forEach((stack, i) => {
       game.tableau[i] = stack.filter((card) => card != newCard);
+    });
+    game.freeCells.forEach((card, i) => {
+      if (card == newCard) {
+        game.freeCells[i] = null;
+      }
     });
     const stack = Math.floor(Math.random() * 4);
     game.homeCells[stack].push(newCard);
