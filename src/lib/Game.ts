@@ -143,7 +143,7 @@ export function moveStack(card: Card, game: Game, count: number): GameUpdater | 
     return (game: Game) => {
       const cards = game.tableau[column].slice(index, index + count);
       cards.forEach((card) => {
-        game.tableau[i].push(card);
+        game.tableau[j].push(card);
       });
       game.tableau[column].splice(index, count);
       return game;
