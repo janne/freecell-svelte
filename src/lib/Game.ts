@@ -51,6 +51,7 @@ export function addCardInHome(card: Card, game: Game): GameUpdater | null {
   }
 
   const index = newGame.homeCells.findIndex((column) => {
+    if (column.length == 0) return false;
     const lastCard = column[column.length - 1];
     return lastCard.suit === card.suit && lastCard.rank + 1 === card.rank;
   });
@@ -60,12 +61,24 @@ export function addCardInHome(card: Card, game: Game): GameUpdater | null {
       return newGame;
     };
   }
+  return null;
+}
 
+export function addCardInFreeCell(card: Card, game: Game): GameUpdater | null {
+  const index = game.freeCells.findIndex((cell) => cell == null);
+  if (index != -1) {
+    return (game: Game) => {
+      game.freeCells[index] = card;
+      return game;
+    };
+  }
   return null;
 }
 
 export function addCard(card: Card, game: Game): GameUpdater | null {
-  const fn = addCardInHome(card, game);
-  if (fn) return fn;
+  const fn1 = addCardInHome(card, game);
+  if (fn1) return fn1;
+  const fn2 = addCardInFreeCell(card, game);
+  if (fn2) return fn2;
   return null;
 }
