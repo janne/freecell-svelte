@@ -1,4 +1,4 @@
-type Suit = "D" | "C" | "H" | "S";
+export type Suit = "D" | "C" | "H" | "S";
 
 export type Card = {
   rank: number;

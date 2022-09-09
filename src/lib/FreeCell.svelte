@@ -1,19 +1,16 @@
 <script lang="ts">
-  import type { Card } from "./Deck";
+  import Card from "./Card.svelte";
 
-  export let card: Card | null;
+  import type { Card as CardType } from "./Deck";
+  import Space from "./Space.svelte";
+
+  export let card: CardType | null;
 </script>
 
-<div class={card ? "card" : "empty"}>{card ? `${card.rank} of ${card.suit}` : ""}</div>
+{#if !card}
+  <Space />
+{/if}
 
-<style type="scss">
-  div {
-    display: flex;
-    width: 6vw;
-    height: 9vw;
-  }
-
-  .empty {
-    border: 2px solid grey;
-  }
-</style>
+{#if card}
+  <Card {card} />
+{/if}

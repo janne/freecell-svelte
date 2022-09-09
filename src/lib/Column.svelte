@@ -10,6 +10,3 @@
     <Card {card} />
   {/each}
 </div>
-
-<style type="scss">
-</style>

@@ -1,19 +1,15 @@
 <script lang="ts">
-  import type { Card } from "./Deck";
+  import Card from "./Card.svelte";
+  import type { Card as CardType } from "./Deck";
+  import Space from "./Space.svelte";
 
-  export let stack: Card[];
+  export let stack: CardType[];
 </script>
 
-<div class={stack.length == 0 ? "empty" : "stack"} />
+{#if stack.length == 0}
+  <Space />
+{/if}
 
-<style type="scss">
-  div {
-    display: flex;
-    width: 6vw;
-    height: 9vw;
-  }
-
-  .empty {
-    border: 2px solid grey;
-  }
-</style>
+{#if stack.length > 0}
+  <Card card={stack[stack.length - 1]} />
+{/if}
