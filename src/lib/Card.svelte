@@ -37,19 +37,21 @@
 </script>
 
 <div class={["card", isBlack(card) ? "black" : "red"].join(" ")} on:click|stopPropagation={handleClick}>
-  {rank(card.rank)}
-  {suit(card.suit)}
+  <span>{rank(card.rank)}</span>
+  <span>{suit(card.suit)}</span>
 </div>
 
 <style type="scss">
   .card {
     overflow: hidden;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     width: 7vw;
     height: 10vw;
     background-color: #eee;
-    font-size: 2.2vw;
-    line-height: 2.2vw;
+    font-size: 3.5vw;
+    line-height: 3.5vw;
     font-weight: bold;
     border: 1px solid black;
     border-radius: 0.5vw;
