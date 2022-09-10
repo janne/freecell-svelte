@@ -26,15 +26,18 @@
   }
 
   function undo() {
-    if (undoState.length > 0) {
-      game = undoState[undoState.length - 1];
-      undoState = undoState.slice(0, undoState.length - 1);
-    }
+    game = undoState[undoState.length - 1];
+    undoState = undoState.slice(0, undoState.length - 1);
+  }
+
+  function restart() {
+    game = undoState[0];
+    undoState = [];
   }
 </script>
 
 <div class="game">
-  <Toolbar {undo} undoDisabled={undoState.length == 0} />
+  <Toolbar {undo} undoDisabled={undoState.length === 0} {restart} restartDisabled={undoState.length === 0} />
   <div class="top">
     <div class="freecells">
       {#each game.freeCells as card}
