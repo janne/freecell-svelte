@@ -11,24 +11,24 @@
 
   function onClick(card: Card, count = 1) {
     if (count > 1) {
-      const updateGame = moveStack(card, structuredClone(game), count);
+      const updateGame = moveStack(card, game, count);
       if (updateGame) {
-        undoState = [...undoState, structuredClone(game)];
+        undoState = [...undoState, game];
         game = updateGame(game);
       }
       return;
     }
-    const updateGame = addCard(card, structuredClone(game));
+    const updateGame = addCard(card, game);
     if (updateGame) {
-      undoState = [...undoState, structuredClone(game)];
+      undoState = [...undoState, game];
       game = updateGame(removeCardFromGame(card, game));
     }
   }
 
   function undo() {
     if (undoState.length > 0) {
-      game = undoState.pop()!;
-      undoState = undoState;
+      game = undoState[undoState.length - 1];
+      undoState = undoState.slice(0, undoState.length - 1);
     }
   }
 </script>
