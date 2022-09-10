@@ -30,12 +30,14 @@
         return "♠️";
     }
   }
+
+  function handleClick(e: MouseEvent) {
+    e.stopPropagation();
+    onClick(card);
+  }
 </script>
 
-<div
-  class={["card", isBlack(card) ? "black" : "red", ...[onClick == null ? [] : ["clickable"]]].join(" ")}
-  on:click={() => onClick(card)}
->
+<div class={["card", isBlack(card) ? "black" : "red"].join(" ")} on:click={handleClick}>
   {rank(card.rank)}
   {suit(card.suit)}
 </div>
@@ -53,6 +55,7 @@
     border-radius: 0.5vw;
     padding: 0.5vw;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    cursor: pointer;
 
     &.black {
       color: black;
@@ -60,10 +63,6 @@
 
     &.red {
       color: red;
-    }
-
-    &.clickable {
-      cursor: pointer;
     }
   }
 </style>
