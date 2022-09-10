@@ -25,6 +25,7 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+    font-size: 2vw;
 
     button:disabled {
       cursor: auto;

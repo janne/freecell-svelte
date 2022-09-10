@@ -90,7 +90,7 @@
     flex-direction: column;
 
     .top {
-      width: 70vw;
+      width: 90vw;
       padding: 10px 0;
       display: flex;
       flex-direction: row;
@@ -98,12 +98,12 @@
 
       .freecells {
         display: flex;
-        gap: 10px;
+        gap: 5px;
       }
 
       .homecells {
         display: flex;
-        gap: 10px;
+        gap: 5px;
       }
     }
   }

@@ -45,10 +45,11 @@
   .card {
     overflow: hidden;
     display: flex;
-    width: 6vw;
+    width: 7vw;
     height: 10vw;
     background-color: #eee;
     font-size: 2.2vw;
+    line-height: 2.2vw;
     font-weight: bold;
     border: 1px solid black;
     border-radius: 0.5vw;
