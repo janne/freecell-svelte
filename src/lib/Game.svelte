@@ -6,38 +6,57 @@
   import Tableau from "./Tableau.svelte";
   import Toolbar from "./Toolbar.svelte";
 
-  let game = createGame();
   let undoState: Game[] = [];
+  let undoIndex: number = -1;
+  let game = createGame();
+  addUndoState();
+
+  function addUndoState() {
+    undoState = [...undoState.slice(0, undoIndex + 1), game];
+    undoIndex = undoState.length - 1;
+  }
+
+  function restart() {
+    undoIndex = 0;
+    game = undoState[undoIndex];
+  }
+
+  function undo() {
+    undoIndex -= 1;
+    game = undoState[undoIndex];
+  }
+
+  function redo() {
+    undoIndex += 1;
+    game = undoState[undoIndex];
+  }
 
   function onClick(card: Card, count = 1) {
     if (count > 1) {
       const updateGame = moveStack(card, game, count);
       if (updateGame) {
-        undoState = [...undoState, game];
         game = updateGame(game);
+        addUndoState();
       }
       return;
     }
     const updateGame = addCard(card, game);
     if (updateGame) {
-      undoState = [...undoState, game];
       game = updateGame(removeCardFromGame(card, game));
+      addUndoState();
     }
-  }
-
-  function undo() {
-    game = undoState[undoState.length - 1];
-    undoState = undoState.slice(0, undoState.length - 1);
-  }
-
-  function restart() {
-    game = undoState[0];
-    undoState = [];
   }
 </script>
 
 <div class="game">
-  <Toolbar {undo} undoDisabled={undoState.length === 0} {restart} restartDisabled={undoState.length === 0} />
+  <Toolbar
+    {undo}
+    undoDisabled={undoIndex === 0}
+    {redo}
+    redoDisabled={undoIndex == undoState.length - 1}
+    {restart}
+    restartDisabled={undoIndex === 0}
+  />
   <div class="top">
     <div class="freecells">
       {#each game.freeCells as card}

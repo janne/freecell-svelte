@@ -1,12 +1,15 @@
 <script type="ts">
   export let undoDisabled: boolean;
   export let undo: () => void;
+  export let redoDisabled: boolean;
+  export let redo: () => void;
   export let restartDisabled: boolean;
   export let restart: () => void;
 </script>
 
 <div class="toolbar">
   <button disabled={undoDisabled} on:click={undo}>Undo</button>
+  <button disabled={redoDisabled} on:click={redo}>Redo</button>
   <button disabled={restartDisabled} on:click={restart}>Restart</button>
 </div>
 
