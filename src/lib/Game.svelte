@@ -90,11 +90,11 @@
     flex-direction: column;
 
     .top {
-      padding: 20px 0;
+      width: 70vw;
+      padding: 10px 0;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      gap: 40px;
 
       .freecells {
         display: flex;

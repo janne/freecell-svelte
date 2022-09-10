@@ -8,16 +8,7 @@
 </script>
 
 <div class="tableau">
-  {#each tableau as stack}
-    <Column {stack} {onClick} />
+  {#each tableau as stack, column}
+    <Column {stack} {onClick} {column} />
   {/each}
 </div>
-
-<style type="scss">
-  .tableau {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-</style>

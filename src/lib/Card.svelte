@@ -32,12 +32,11 @@
   }
 
   function handleClick(e: MouseEvent) {
-    e.stopPropagation();
     onClick(card);
   }
 </script>
 
-<div class={["card", isBlack(card) ? "black" : "red"].join(" ")} on:click={handleClick}>
+<div class={["card", isBlack(card) ? "black" : "red"].join(" ")} on:click|stopPropagation={handleClick}>
   {rank(card.rank)}
   {suit(card.suit)}
 </div>

@@ -5,6 +5,7 @@
 
   export let stack: CardType[];
   export let onClick: (card: CardType, count: number) => void;
+  export let column: number;
 </script>
 
 <div class="column">
@@ -14,18 +15,18 @@
     </div>
   {/if}
   {#each stack as card, i}
-    <div class="card-wrapper">
+    <div class="card-wrapper" style={`top: ${i * 5}vh; left: ${column * 9}vw;`}>
       <Card {card} onClick={(card) => onClick(card, stack.length - i)} />
     </div>
   {/each}
 </div>
 
-<style>
+<style type="scss">
   .column {
-    margin-top: 10vw;
+    position: relative;
   }
 
   .card-wrapper {
-    margin-top: -100%;
+    position: absolute;
   }
 </style>
