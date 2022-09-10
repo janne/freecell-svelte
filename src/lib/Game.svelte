@@ -6,10 +6,18 @@
   import Tableau from "./Tableau.svelte";
   import Toolbar from "./Toolbar.svelte";
 
-  let undoState: Game[] = [];
-  let undoIndex: number = -1;
-  let game = createGame();
-  addUndoState();
+  let undoState: Game[];
+  let undoIndex: number;
+  let game: Game;
+
+  initialize();
+
+  function initialize() {
+    undoState = [];
+    undoIndex = -1;
+    game = createGame();
+    addUndoState();
+  }
 
   function addUndoState() {
     undoState = [...undoState.slice(0, undoIndex + 1), game];
@@ -56,6 +64,7 @@
     redoDisabled={undoIndex == undoState.length - 1}
     {restart}
     restartDisabled={undoIndex === 0}
+    newGame={initialize}
   />
   <div class="top">
     <div class="freecells">
