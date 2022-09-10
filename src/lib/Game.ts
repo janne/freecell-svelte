@@ -1,6 +1,6 @@
 import { createDeck, isBlack, shuffleDeck, type Card } from "./Deck";
 
-type Game = {
+export type Game = {
   freeCells: (Card | null)[];
   homeCells: Card[][];
   tableau: Card[][];
@@ -21,19 +21,18 @@ export function createGame(): Game {
 }
 
 export function removeCardFromGame(newCard: Card, game: Game): Game {
-  const newGame = { ...game };
-  newGame.homeCells.forEach((stack, i) => {
-    newGame.homeCells[i] = stack.filter((card) => card != newCard);
+  game.homeCells.forEach((stack, i) => {
+    game.homeCells[i] = stack.filter((card) => card != newCard);
   });
-  newGame.tableau.forEach((stack, i) => {
-    newGame.tableau[i] = stack.filter((card) => card != newCard);
+  game.tableau.forEach((stack, i) => {
+    game.tableau[i] = stack.filter((card) => card != newCard);
   });
-  newGame.freeCells.forEach((card, i) => {
+  game.freeCells.forEach((card, i) => {
     if (card == newCard) {
-      newGame.freeCells[i] = null;
+      game.freeCells[i] = null;
     }
   });
-  return newGame;
+  return game;
 }
 
 type GameUpdater = (game: Game) => Game;
