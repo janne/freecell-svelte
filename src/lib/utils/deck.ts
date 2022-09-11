@@ -1,3 +1,5 @@
+import { createGenerator } from "./randomGenerator";
+
 export type Suit = "D" | "C" | "H" | "S";
 
 export type Card = {
@@ -20,10 +22,18 @@ export function createDeck(): Card[] {
 }
 
 export function shuffleDeck(deck: Card[]): Card[] {
-  return deck.reduce<Card[]>((deck, card, i) => {
-    const pos = Math.floor(Math.random() * (i + 1));
-    return [...deck.slice(0, pos), card, ...deck.slice(pos)];
-  }, []);
+  const fromDeck = [...deck];
+  const shuffledDeck: Card[] = [];
+  const generator = createGenerator(11982);
+
+  while (fromDeck.length > 0) {
+    const index = generator() % fromDeck.length;
+    shuffledDeck.push(fromDeck[index]);
+    fromDeck.splice(index, 1, fromDeck[fromDeck.length - 1]);
+    fromDeck.splice(fromDeck.length - 1);
+  }
+
+  return shuffledDeck;
 }
 
 export function deckToString(deck: Card[]): String {
