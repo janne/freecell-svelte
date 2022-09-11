@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Card } from "./utils/deck";
   import FreeCell from "./FreeCell.svelte";
-  import { addCard, createGame, moveStack, removeCardFromGame, type Game } from "./utils/game";
+  import { addCard, addCardInHome, createGame, moveStack, removeCardFromGame, type Game } from "./utils/game";
   import HomeCell from "./HomeCell.svelte";
   import Tableau from "./Tableau.svelte";
   import Toolbar from "./Toolbar.svelte";
@@ -17,8 +17,23 @@
     undoIndex = -1;
 
     game = createGame(seed || Math.floor(Math.random() * 32000));
-    addUndoState();
     calculateWindowWidth();
+    addUndoState();
+  }
+
+  function autoMove() {
+    const cardsToTest = [
+      ...(game.freeCells.filter((cell) => cell != null) as Card[]),
+      ...game.tableau.filter((stack) => stack.length > 0).map((stack) => stack[stack.length - 1])
+    ];
+    for (const card of cardsToTest) {
+      const updateGame = addCardInHome(card, game);
+      if (updateGame) {
+        game = updateGame(removeCardFromGame(card, game));
+        addUndoState();
+        break;
+      }
+    }
   }
 
   function calculateWindowWidth() {
@@ -30,6 +45,7 @@
   function addUndoState() {
     undoState = [...undoState.slice(0, undoIndex + 1), game];
     undoIndex = undoState.length - 1;
+    autoMove();
   }
 
   function restart() {
