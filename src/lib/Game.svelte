@@ -12,10 +12,11 @@
 
   initialize();
 
-  function initialize() {
+  function initialize(seed?: number) {
     undoState = [];
     undoIndex = -1;
-    game = createGame();
+
+    game = createGame(seed || Math.floor(Math.random() * 32000));
     addUndoState();
     calculateWindowWidth();
   }
@@ -72,6 +73,7 @@
     {restart}
     restartDisabled={undoIndex === 0}
     newGame={initialize}
+    seed={game.seed}
   />
   <div class="top">
     <div class="freecells">
