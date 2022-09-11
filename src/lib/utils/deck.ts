@@ -6,12 +6,12 @@ export type Card = {
 };
 
 export function createDeck(): Card[] {
-  return ["D", "C", "H", "S"]
-    .map((suit) =>
-      [...Array(13).keys()].map(
-        (v) =>
+  return [...Array(13).keys()]
+    .map((rank) =>
+      ["C", "D", "H", "S"].map(
+        (suit) =>
           ({
-            rank: v + 1,
+            rank: rank + 1,
             suit
           } as Card)
       )

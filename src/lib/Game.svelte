@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { Card } from "./Deck";
+  import type { Card } from "./utils/deck";
   import FreeCell from "./FreeCell.svelte";
-  import { addCard, createGame, moveStack, removeCardFromGame, type Game } from "./Game";
+  import { addCard, createGame, moveStack, removeCardFromGame, type Game } from "./utils/game";
   import HomeCell from "./HomeCell.svelte";
   import Tableau from "./Tableau.svelte";
   import Toolbar from "./Toolbar.svelte";

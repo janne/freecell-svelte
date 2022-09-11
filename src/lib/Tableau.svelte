@@ -1,7 +1,7 @@
 <script lang="ts">
   import Column from "./Column.svelte";
 
-  import type { Card } from "./Deck";
+  import type { Card } from "./utils/deck";
 
   export let tableau: Card[][];
   export let onClick: (card: Card) => void;

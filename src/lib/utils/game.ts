@@ -1,4 +1,4 @@
-import { createDeck, isBlack, shuffleDeck, type Card } from "./Deck";
+import { createDeck, isBlack, shuffleDeck, type Card } from "./deck";
 
 export type Game = {
   freeCells: (Card | null)[];

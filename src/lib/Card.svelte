@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { isBlack, type Card, type Suit } from "./Deck";
+  import { isBlack, type Card, type Suit } from "./utils/deck";
 
   export let card: Card;
   export let onClick: (card: Card) => void;

@@ -1,7 +1,7 @@
 <script lang="ts">
   import Card from "./Card.svelte";
 
-  import type { Card as CardType } from "./Deck";
+  import type { Card as CardType } from "./utils/deck";
   import Space from "./Space.svelte";
 
   export let card: CardType | null;
