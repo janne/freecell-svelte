@@ -6,10 +6,10 @@
 
 <style type="scss">
   .space {
-    border: 1px solid #339;
-    width: 7vw;
-    height: 10vw;
-    border-radius: 0.5vw;
-    padding: 0.5vw;
+    border: 1px solid #696;
+    width: calc(var(--window-width) * 8);
+    height: calc(var(--window-width) * 12);
+    padding: calc(var(--window-width) / 4);
+    border-radius: calc(var(--window-width) / 2);
   }
 </style>

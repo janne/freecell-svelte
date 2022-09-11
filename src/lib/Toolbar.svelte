@@ -23,9 +23,9 @@
   .toolbar {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: calc(var(--window-width) * 100);
     justify-content: space-between;
-    font-size: 2vw;
+    font-size: calc(var(--window-width) * 2);
 
     button:disabled {
       cursor: auto;

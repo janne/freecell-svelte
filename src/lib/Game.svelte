@@ -17,7 +17,14 @@
     undoIndex = -1;
     game = createGame();
     addUndoState();
+    calculateWindowWidth();
   }
+
+  function calculateWindowWidth() {
+    document.documentElement.style.setProperty("--window-width", Math.min(window.innerWidth, 800) / 100 + "px");
+  }
+
+  window.onresize = calculateWindowWidth;
 
   function addUndoState() {
     undoState = [...undoState.slice(0, undoIndex + 1), game];
@@ -85,12 +92,12 @@
 <style type="scss">
   .game {
     display: flex;
-    max-width: 1280px;
+    max-width: 1000px;
     height: 100vh;
     flex-direction: column;
 
     .top {
-      width: 90vw;
+      width: calc(var(--window-width) * 100);
       padding: 10px 0;
       display: flex;
       flex-direction: row;

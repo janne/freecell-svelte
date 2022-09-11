@@ -47,15 +47,15 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 7vw;
-    height: 10vw;
     background-color: #eee;
-    font-size: 3.5vw;
-    line-height: 3.5vw;
+    width: calc(var(--window-width) * 8);
+    height: calc(var(--window-width) * 12);
+    padding: calc(var(--window-width) / 4);
+    font-size: calc(var(--window-width) * 4);
+    line-height: calc(var(--window-width) * 4);
     font-weight: bold;
     border: 1px solid black;
-    border-radius: 0.5vw;
-    padding: 0.5vw;
+    border-radius: calc(var(--window-width) / 2);
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     cursor: pointer;
 
