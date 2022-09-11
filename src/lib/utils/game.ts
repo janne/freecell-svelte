@@ -8,17 +8,18 @@ export type Game = {
 
 type GameUpdater = (game: Game) => Game;
 
-export function createGame(): Game {
-  const deck = shuffleDeck(createDeck());
+export function createGame(seed = 1): Game {
+  const deck = shuffleDeck(createDeck(), seed);
+
+  const tableau: Card[][] = [[], [], [], [], [], [], [], []];
+  deck.forEach((card, i) => {
+    tableau[i % 8].push(card);
+  });
 
   return {
     freeCells: [null, null, null, null],
     homeCells: [[], [], [], []],
-    tableau: [...Array(8).keys()].map((col) => {
-      const count = col < 4 ? 7 : 6;
-      const index = col < 4 ? col * 7 : 7 * 4 + (col - 4) * 6;
-      return deck.slice(index, index + count);
-    })
+    tableau
   };
 }
 

@@ -21,10 +21,10 @@ export function createDeck(): Card[] {
     .flat();
 }
 
-export function shuffleDeck(deck: Card[]): Card[] {
+export function shuffleDeck(deck: Card[], seed: number): Card[] {
   const fromDeck = [...deck];
   const shuffledDeck: Card[] = [];
-  const generator = createGenerator(11982);
+  const generator = createGenerator(seed);
 
   while (fromDeck.length > 0) {
     const index = generator() % fromDeck.length;
