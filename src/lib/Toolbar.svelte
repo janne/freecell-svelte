@@ -7,6 +7,10 @@
   export let restart: () => void;
   export let newGame: (seed: number) => void;
   export let seed: number;
+
+  function handleSeedChange(e: any) {
+    newGame(e.target.value)
+  }
 </script>
 
 <div class="toolbar">
@@ -14,9 +18,7 @@
     <button on:click={() => newGame(Math.floor(Math.random() * 32000))}>New game</button>
     <button disabled={restartDisabled} on:click={restart}>Restart</button>
   </span>
-  <span class="seed">
-    #{seed}
-  </span>
+  <input class="seed" value={seed} type="number" min="1" max="32000" on:change={handleSeedChange} />
   <span>
     <button disabled={undoDisabled} on:click={undo}>Undo</button>
     <button disabled={redoDisabled} on:click={redo}>Redo</button>
@@ -25,11 +27,14 @@
 
 <style lang="scss">
   .seed {
+    height: 20px;
+    color: #eee;
     font-size: calc(var(--window-width) * 2);
     font-weight: bold;
-    color: white;
+    background-color: transparent;
+    border: none;
     display: flex;
-    align-items: center;
+    align-self: center;
   }
   .toolbar {
     display: flex;
