@@ -93,7 +93,6 @@
   .game {
     display: flex;
     max-width: 1000px;
-    height: 100vh;
     flex-direction: column;
 
     .top {
