@@ -137,7 +137,7 @@ export function moveStack(card: Card, game: Game, count: number): GameUpdater | 
     return (game: Game) => {
       const cards = game.tableau[column].slice(index, index + count);
       const tableau = cards.reduce((memo, card) => pushToListOfStacks(card, j, memo), game.tableau);
-      return { ...game, tableau: deleteFromListOfStacks(column, index, game.tableau) };
+      return { ...game, tableau: deleteFromListOfStacks(column, index, tableau) };
     };
   }
 
