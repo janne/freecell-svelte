@@ -45,7 +45,7 @@ function pushToListOfStacks<T>(item: T, index: number, list: T[][]): T[][] {
 
 function deleteFromListOfStacks<T>(column: number, index: number, list: T[][]): T[][] {
   const pre = list.slice(0, column);
-  const stack = [...list[column].slice(0, index)];
+  const stack = list[column].slice(0, index);
   const post = list.slice(column + 1);
   return [...pre, stack, ...post];
 }
@@ -125,11 +125,8 @@ export function moveStack(card: Card, game: Game, count: number): GameUpdater | 
   if (i != -1) {
     return (game: Game) => {
       const cards = game.tableau[column].slice(index, index + count);
-      cards.forEach((card) => {
-        game.tableau = pushToListOfStacks(card, i, game.tableau);
-      });
-      game.tableau = deleteFromListOfStacks(column, index, game.tableau);
-      return game;
+      const tableau = cards.reduce((memo, card) => pushToListOfStacks(card, i, memo), game.tableau);
+      return { ...game, tableau: deleteFromListOfStacks(column, index, tableau) };
     };
   }
 
@@ -139,11 +136,8 @@ export function moveStack(card: Card, game: Game, count: number): GameUpdater | 
   if (j != -1) {
     return (game: Game) => {
       const cards = game.tableau[column].slice(index, index + count);
-      cards.forEach((card) => {
-        game.tableau = pushToListOfStacks(card, j, game.tableau);
-      });
-      game.tableau = deleteFromListOfStacks(column, index, game.tableau);
-      return game;
+      const tableau = cards.reduce((memo, card) => pushToListOfStacks(card, j, memo), game.tableau);
+      return { ...game, tableau: deleteFromListOfStacks(column, index, game.tableau) };
     };
   }
 
