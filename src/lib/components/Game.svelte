@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { Card } from "./utils/deck";
+  import type { Card } from "../utils/deck";
   import FreeCell from "./FreeCell.svelte";
-  import { addCard, addCardInHome, createGame, moveStack, removeCardFromGame, type Game } from "./utils/game";
+  import { addCard, addCardInHome, createGame, moveStack, removeCardFromGame, type Game } from "../utils/game";
   import HomeCell from "./HomeCell.svelte";
   import Tableau from "./Tableau.svelte";
   import Toolbar from "./Toolbar.svelte";
@@ -110,7 +110,6 @@
 <style type="scss">
   .game {
     display: flex;
-    max-width: 1000px;
     flex-direction: column;
 
     .top {

@@ -1,6 +1,6 @@
 <script lang="ts">
   import Card from "./Card.svelte";
-  import type { Card as CardType } from "./utils/deck";
+  import type { Card as CardType } from "../utils/deck";
   import Space from "./Space.svelte";
 
   export let stack: CardType[];

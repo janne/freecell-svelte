@@ -1,6 +1,6 @@
 <script lang="ts">
   import Card from "./Card.svelte";
-  import type { Card as CardType } from "./utils/deck";
+  import type { Card as CardType } from "../utils/deck";
 
   export let stack: CardType[];
   export let onClick: (card: CardType, count: number) => void;

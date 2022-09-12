@@ -1,5 +1,5 @@
 <script type="ts">
-  import type { Card } from "./utils/deck";
+  import type { Card } from "../utils/deck";
 </script>
 
 <div class="space" />
