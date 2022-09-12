@@ -42,10 +42,10 @@
 
   window.onresize = calculateWindowWidth;
 
-  function addUndoState() {
+  function addUndoState(skipAutoMove = false) {
     undoState = [...undoState.slice(0, undoIndex + 1), game];
     undoIndex = undoState.length - 1;
-    autoMove();
+    skipAutoMove || autoMove();
   }
 
   function restart() {
@@ -74,8 +74,9 @@
     }
     const updateGame = addCard(card, game);
     if (updateGame) {
+      const skipAutoMove = game.homeCells.find((cell) => cell.find((c) => c == card)) != null;
       game = updateGame(removeCardFromGame(card, game));
-      addUndoState();
+      addUndoState(skipAutoMove);
     }
   }
 </script>
