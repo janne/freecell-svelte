@@ -70,6 +70,7 @@
       line-height: calc(var(--window-width) * 4);
       font-weight: bold;
       min-height: 0vw;
+      text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
     }
 
     .suit {
