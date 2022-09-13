@@ -40,7 +40,10 @@
     document.documentElement.style.setProperty("--window-width", Math.min(window.innerWidth, 800) / 100 + "px");
   }
 
-  window.onresize = calculateWindowWidth;
+  window.addEventListener("resize", calculateWindowWidth);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", calculateWindowWidth);
+  }
 
   function addUndoState(skipAutoMove = false) {
     undoState = [...undoState.slice(0, undoIndex + 1), game];
