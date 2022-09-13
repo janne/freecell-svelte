@@ -10,11 +10,20 @@
   let undoIndex: number;
   let game: Game;
 
-  const seed = Number(localStorage.getItem("freecellSeed") || Math.floor(Math.random() * 1000000));
+  initialize(getSeed());
 
-  initialize(seed);
+  function getSeed() {
+    const fromPath = Number(document.location.pathname.slice(1));
+    if (fromPath > 0) return fromPath;
+
+    const fromStorage = localStorage.getItem("freecellSeed");
+    if (fromStorage) return Number(fromStorage);
+
+    return Math.floor(Math.random() * 1000000);
+  }
 
   function initialize(seed: number) {
+    window.history.pushState("", "", `/${seed}`);
     localStorage.setItem("freecellSeed", seed.toString());
     undoState = [];
     undoIndex = -1;
