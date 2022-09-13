@@ -10,13 +10,15 @@
   let undoIndex: number;
   let game: Game;
 
-  initialize();
+  const seed = Number(localStorage.getItem("freecellSeed") || Math.floor(Math.random() * 1000000));
 
-  function initialize(seed?: number) {
+  initialize(seed);
+
+  function initialize(seed: number) {
+    localStorage.setItem("freecellSeed", seed.toString());
     undoState = [];
     undoIndex = -1;
-
-    game = createGame(seed || Math.floor(Math.random() * 1000000));
+    game = createGame(seed);
     calculateWindowWidth();
     addUndoState();
   }
