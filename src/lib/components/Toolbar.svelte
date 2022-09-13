@@ -15,10 +15,10 @@
 
 <div class="toolbar">
   <span>
-    <button on:click={() => newGame(Math.floor(Math.random() * 32000))}>New game</button>
+    <button on:click={() => newGame(Math.floor(Math.random() * 1000000))}>New game</button>
     <button disabled={restartDisabled} on:click={restart}>Restart</button>
   </span>
-  <input class="seed" value={seed} type="number" min="1" max="32000" on:change={handleSeedChange} />
+  <input class="seed" value={seed} type="number" min="1" max="1000000" on:change={handleSeedChange} />
   <span>
     <button disabled={undoDisabled} on:click={undo}>Undo</button>
     <button disabled={redoDisabled} on:click={redo}>Redo</button>

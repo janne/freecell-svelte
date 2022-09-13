@@ -16,7 +16,7 @@
     undoState = [];
     undoIndex = -1;
 
-    game = createGame(seed || Math.floor(Math.random() * 32000));
+    game = createGame(seed || Math.floor(Math.random() * 1000000));
     calculateWindowWidth();
     addUndoState();
   }
