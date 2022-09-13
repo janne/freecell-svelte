@@ -37,8 +37,8 @@
 </script>
 
 <div class={["card", isBlack(card) ? "black" : "red"].join(" ")} on:click|stopPropagation={handleClick}>
-  <span>{rank(card.rank)}</span>
-  <span>{suit(card.suit)}</span>
+  <div class="rank">{rank(card.rank)}</div>
+  <div class="suit">{suit(card.suit)}</div>
 </div>
 
 <style type="scss">
@@ -46,7 +46,6 @@
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     background-color: #eee;
     width: calc(var(--window-width) * 8);
     height: calc(var(--window-width) * 12);
@@ -55,9 +54,10 @@
     line-height: calc(var(--window-width) * 4);
     font-weight: bold;
     border: 1px solid black;
-    border-radius: calc(var(--window-width) / 2);
+    border-radius: calc(var(--window-width));
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     cursor: pointer;
+    position: relative;
 
     &.black {
       color: black;
@@ -65,6 +65,18 @@
 
     &.red {
       color: red;
+    }
+
+    .rank {
+      position: absolute;
+    }
+
+    .suit {
+      padding-top: calc(var(--window-width) * 1.5);
+      width: 100%;
+      align-self: center;
+      justify-self: center;
+      font-size: calc(var(--window-width) * 11);
     }
   }
 </style>
