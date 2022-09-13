@@ -9,7 +9,7 @@
   export let seed: number;
 
   function handleSeedChange(e: any) {
-    newGame(e.target.value)
+    newGame(e.target.value);
   }
 </script>
 
@@ -29,7 +29,7 @@
   .seed {
     height: 20px;
     color: #eee;
-    font-size: calc(var(--window-width) * 2);
+    font-size: 1em;
     font-weight: bold;
     background-color: transparent;
     border: none;
@@ -41,7 +41,7 @@
     flex-direction: row;
     width: calc(var(--window-width) * 100);
     justify-content: space-between;
-    font-size: calc(var(--window-width) * 2);
+    font-size: 1em;
     margin-top: 4px;
 
     button:disabled {
