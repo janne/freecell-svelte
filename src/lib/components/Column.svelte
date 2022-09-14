@@ -9,7 +9,7 @@
 
 <div class="column">
   {#each stack as card, i}
-    <div class="card-wrapper" style={`top: ${i * 5}vh; left: calc(var(--window-width)*${column}*13);`}>
+    <div class="card-wrapper" style={`top: ${i * 5}vh; left: calc(var(--window-width)*${column}*12.7);`}>
       <Card {card} onClick={(card) => onClick(card, stack.length - i)} />
     </div>
   {/each}

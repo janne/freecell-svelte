@@ -130,19 +130,19 @@
 
     .top {
       width: calc(var(--window-width) * 100);
-      padding: 10px 0;
+      padding: 4px 0;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
 
       .freecells {
         display: flex;
-        gap: 5px;
+        gap: 1px;
       }
 
       .homecells {
         display: flex;
-        gap: 5px;
+        gap: 1px;
       }
     }
   }
