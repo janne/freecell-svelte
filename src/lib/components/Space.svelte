@@ -1,14 +1,25 @@
 <script type="ts">
-  import type { Card } from "../utils/deck";
+  import Card from "./Card.svelte";
+  import type { Card as CardType } from "../utils/deck";
+
+  export let onClick: (card: CardType) => void;
+  export let card: CardType | null;
 </script>
 
-<div class="space" />
+<div class="space">
+  {#if card != null}
+    <Card {card} {onClick} />
+  {/if}
+</div>
 
 <style type="scss">
   .space {
     border: 1px solid #696;
-    width: 65px;
-    height: 100px;
+    height: 12vmax;
+    width: 8vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 8px;
   }
 </style>

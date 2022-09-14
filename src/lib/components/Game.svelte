@@ -1,10 +1,9 @@
 <script lang="ts">
   import type { Card } from "../utils/deck";
-  import FreeCell from "./FreeCell.svelte";
   import { addCard, addCardInHome, createGame, moveStack, removeCardFromGame, type Game } from "../utils/game";
-  import HomeCell from "./HomeCell.svelte";
-  import Tableau from "./Tableau.svelte";
+  import Column from "./Column.svelte";
   import Toolbar from "./Toolbar.svelte";
+  import Space from "./Space.svelte";
 
   let undoState: Game[];
   let undoIndex: number;
@@ -99,17 +98,21 @@
   <div class="top">
     <div class="freecells">
       {#each game.freeCells as card}
-        <FreeCell {card} {onClick} />
+        <Space {card} {onClick} />
       {/each}
     </div>
 
     <div class="homecells">
       {#each game.homeCells as stack}
-        <HomeCell {stack} {onClick} />
+        <Space card={stack.length > 0 ? stack[stack.length - 1] : null} {onClick} />
       {/each}
     </div>
   </div>
-  <Tableau tableau={game.tableau} {onClick} />
+  <div class="tableau">
+    {#each game.tableau as stack}
+      <Column {stack} {onClick} />
+    {/each}
+  </div>
 </div>
 
 <style type="scss">
@@ -118,7 +121,6 @@
     flex-direction: column;
 
     .top {
-      width: 100%;
       padding: 4px 0;
       display: flex;
       flex-direction: row;
@@ -133,6 +135,11 @@
         display: flex;
         gap: 1px;
       }
+    }
+
+    .tableau {
+      display: flex;
+      flex-direction: row;
     }
   }
 </style>

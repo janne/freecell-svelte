@@ -3,6 +3,7 @@
 
   export let card: Card;
   export let onClick: (card: Card) => void;
+  export let index: number = 0;
 
   function rank(rank: number): String {
     switch (rank) {
@@ -17,22 +18,16 @@
     }
     return rank.toString();
   }
-
-  function handleClick(e: MouseEvent) {
-    onClick(card);
-  }
 </script>
 
-<div class={`card S${rank(card.rank)}${card.suit}`} on:click|stopPropagation={handleClick} />
+<div class={`card L${rank(card.rank)}${card.suit}`} on:click|stopPropagation={() => onClick(card)} />
 
 <style type="scss">
   .card {
     display: flex;
-    height: 100px;
-    width: 65px;
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    height: 12vmax;
+    width: 8vmax;
     cursor: pointer;
-    position: relative;
     background-size: contain;
     background-repeat: no-repeat;
   }

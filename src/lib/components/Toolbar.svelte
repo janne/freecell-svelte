@@ -38,12 +38,15 @@
   .toolbar {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 100vw;
     justify-content: space-between;
     margin-top: 4px;
 
     input {
       font-size: 16px;
+    }
+    button {
+      min-height: 44px;
     }
 
     button:disabled {
