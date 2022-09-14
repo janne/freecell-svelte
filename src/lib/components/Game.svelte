@@ -52,6 +52,7 @@
   }
 
   window.addEventListener("resize", calculateWindowWidth);
+  window.addEventListener("touchend", calculateWindowWidth);
   if (window.visualViewport) {
     window.visualViewport.addEventListener("resize", calculateWindowWidth);
   }
