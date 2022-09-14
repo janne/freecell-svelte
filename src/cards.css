@@ -1,0 +1,312 @@
+.S2C {
+  background-image: url(/images/cards/small/2C.svg);
+}
+.S2D {
+  background-image: url(/images/cards/small/2D.svg);
+}
+.S2H {
+  background-image: url(/images/cards/small/2H.svg);
+}
+.S2S {
+  background-image: url(/images/cards/small/2S.svg);
+}
+.S3C {
+  background-image: url(/images/cards/small/3C.svg);
+}
+.S3D {
+  background-image: url(/images/cards/small/3D.svg);
+}
+.S3H {
+  background-image: url(/images/cards/small/3H.svg);
+}
+.S3S {
+  background-image: url(/images/cards/small/3S.svg);
+}
+.S4C {
+  background-image: url(/images/cards/small/4C.svg);
+}
+.S4D {
+  background-image: url(/images/cards/small/4D.svg);
+}
+.S4H {
+  background-image: url(/images/cards/small/4H.svg);
+}
+.S4S {
+  background-image: url(/images/cards/small/4S.svg);
+}
+.S5C {
+  background-image: url(/images/cards/small/5C.svg);
+}
+.S5D {
+  background-image: url(/images/cards/small/5D.svg);
+}
+.S5H {
+  background-image: url(/images/cards/small/5H.svg);
+}
+.S5S {
+  background-image: url(/images/cards/small/5S.svg);
+}
+.S6C {
+  background-image: url(/images/cards/small/6C.svg);
+}
+.S6D {
+  background-image: url(/images/cards/small/6D.svg);
+}
+.S6H {
+  background-image: url(/images/cards/small/6H.svg);
+}
+.S6S {
+  background-image: url(/images/cards/small/6S.svg);
+}
+.S7C {
+  background-image: url(/images/cards/small/7C.svg);
+}
+.S7D {
+  background-image: url(/images/cards/small/7D.svg);
+}
+.S7H {
+  background-image: url(/images/cards/small/7H.svg);
+}
+.S7S {
+  background-image: url(/images/cards/small/7S.svg);
+}
+.S8C {
+  background-image: url(/images/cards/small/8C.svg);
+}
+.S8D {
+  background-image: url(/images/cards/small/8D.svg);
+}
+.S8H {
+  background-image: url(/images/cards/small/8H.svg);
+}
+.S8S {
+  background-image: url(/images/cards/small/8S.svg);
+}
+.S9C {
+  background-image: url(/images/cards/small/9C.svg);
+}
+.S9D {
+  background-image: url(/images/cards/small/9D.svg);
+}
+.S9H {
+  background-image: url(/images/cards/small/9H.svg);
+}
+.S9S {
+  background-image: url(/images/cards/small/9S.svg);
+}
+.S10C {
+  background-image: url(/images/cards/small/10C.svg);
+}
+.S10D {
+  background-image: url(/images/cards/small/10D.svg);
+}
+.S10H {
+  background-image: url(/images/cards/small/10H.svg);
+}
+.S10S {
+  background-image: url(/images/cards/small/10S.svg);
+}
+.SJC {
+  background-image: url(/images/cards/small/JC.svg);
+}
+.SJD {
+  background-image: url(/images/cards/small/JD.svg);
+}
+.SJH {
+  background-image: url(/images/cards/small/JH.svg);
+}
+.SJS {
+  background-image: url(/images/cards/small/JS.svg);
+}
+.SQC {
+  background-image: url(/images/cards/small/QC.svg);
+}
+.SQD {
+  background-image: url(/images/cards/small/QD.svg);
+}
+.SQH {
+  background-image: url(/images/cards/small/QH.svg);
+}
+.SQS {
+  background-image: url(/images/cards/small/QS.svg);
+}
+.SKC {
+  background-image: url(/images/cards/small/KC.svg);
+}
+.SKD {
+  background-image: url(/images/cards/small/KD.svg);
+}
+.SKH {
+  background-image: url(/images/cards/small/KH.svg);
+}
+.SKS {
+  background-image: url(/images/cards/small/KS.svg);
+}
+.SAC {
+  background-image: url(/images/cards/small/AC.svg);
+}
+.SAD {
+  background-image: url(/images/cards/small/AD.svg);
+}
+.SAH {
+  background-image: url(/images/cards/small/AH.svg);
+}
+.SAS {
+  background-image: url(/images/cards/small/AS.svg);
+}
+.L2C {
+  background-image: url(/images/cards/large/2C.svg);
+}
+.L2D {
+  background-image: url(/images/cards/large/2D.svg);
+}
+.L2H {
+  background-image: url(/images/cards/large/2H.svg);
+}
+.L2S {
+  background-image: url(/images/cards/large/2S.svg);
+}
+.L3C {
+  background-image: url(/images/cards/large/3C.svg);
+}
+.L3D {
+  background-image: url(/images/cards/large/3D.svg);
+}
+.L3H {
+  background-image: url(/images/cards/large/3H.svg);
+}
+.L3S {
+  background-image: url(/images/cards/large/3S.svg);
+}
+.L4C {
+  background-image: url(/images/cards/large/4C.svg);
+}
+.L4D {
+  background-image: url(/images/cards/large/4D.svg);
+}
+.L4H {
+  background-image: url(/images/cards/large/4H.svg);
+}
+.L4S {
+  background-image: url(/images/cards/large/4S.svg);
+}
+.L5C {
+  background-image: url(/images/cards/large/5C.svg);
+}
+.L5D {
+  background-image: url(/images/cards/large/5D.svg);
+}
+.L5H {
+  background-image: url(/images/cards/large/5H.svg);
+}
+.L5S {
+  background-image: url(/images/cards/large/5S.svg);
+}
+.L6C {
+  background-image: url(/images/cards/large/6C.svg);
+}
+.L6D {
+  background-image: url(/images/cards/large/6D.svg);
+}
+.L6H {
+  background-image: url(/images/cards/large/6H.svg);
+}
+.L6S {
+  background-image: url(/images/cards/large/6S.svg);
+}
+.L7C {
+  background-image: url(/images/cards/large/7C.svg);
+}
+.L7D {
+  background-image: url(/images/cards/large/7D.svg);
+}
+.L7H {
+  background-image: url(/images/cards/large/7H.svg);
+}
+.L7S {
+  background-image: url(/images/cards/large/7S.svg);
+}
+.L8C {
+  background-image: url(/images/cards/large/8C.svg);
+}
+.L8D {
+  background-image: url(/images/cards/large/8D.svg);
+}
+.L8H {
+  background-image: url(/images/cards/large/8H.svg);
+}
+.L8S {
+  background-image: url(/images/cards/large/8S.svg);
+}
+.L9C {
+  background-image: url(/images/cards/large/9C.svg);
+}
+.L9D {
+  background-image: url(/images/cards/large/9D.svg);
+}
+.L9H {
+  background-image: url(/images/cards/large/9H.svg);
+}
+.L9S {
+  background-image: url(/images/cards/large/9S.svg);
+}
+.L10C {
+  background-image: url(/images/cards/large/10C.svg);
+}
+.L10D {
+  background-image: url(/images/cards/large/10D.svg);
+}
+.L10H {
+  background-image: url(/images/cards/large/10H.svg);
+}
+.L10S {
+  background-image: url(/images/cards/large/10S.svg);
+}
+.LJC {
+  background-image: url(/images/cards/large/JC.svg);
+}
+.LJD {
+  background-image: url(/images/cards/large/JD.svg);
+}
+.LJH {
+  background-image: url(/images/cards/large/JH.svg);
+}
+.LJS {
+  background-image: url(/images/cards/large/JS.svg);
+}
+.LQC {
+  background-image: url(/images/cards/large/QC.svg);
+}
+.LQD {
+  background-image: url(/images/cards/large/QD.svg);
+}
+.LQH {
+  background-image: url(/images/cards/large/QH.svg);
+}
+.LQS {
+  background-image: url(/images/cards/large/QS.svg);
+}
+.LKC {
+  background-image: url(/images/cards/large/KC.svg);
+}
+.LKD {
+  background-image: url(/images/cards/large/KD.svg);
+}
+.LKH {
+  background-image: url(/images/cards/large/KH.svg);
+}
+.LKS {
+  background-image: url(/images/cards/large/KS.svg);
+}
+.LAC {
+  background-image: url(/images/cards/large/AC.svg);
+}
+.LAD {
+  background-image: url(/images/cards/large/AD.svg);
+}
+.LAH {
+  background-image: url(/images/cards/large/AH.svg);
+}
+.LAS {
+  background-image: url(/images/cards/large/AS.svg);
+}

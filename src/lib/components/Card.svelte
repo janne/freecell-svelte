@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { isBlack, type Card, type Suit } from "../utils/deck";
+  import type { Card } from "../utils/deck";
 
   export let card: Card;
   export let onClick: (card: Card) => void;
@@ -23,20 +23,17 @@
   }
 </script>
 
-<div class={["card", isBlack(card) ? "black" : "red"].join(" ")} on:click|stopPropagation={handleClick}>
-  <img
-    alt={`${rank(card.rank)}${card.suit}`}
-    class="img"
-    src={`/images/cards/small/${rank(card.rank)}${card.suit}.svg`}
-  />
-</div>
+<div class={`card S${rank(card.rank)}${card.suit}`} on:click|stopPropagation={handleClick} />
 
 <style type="scss">
   .card {
     display: flex;
-    height: calc(var(--window-width) * 16);
+    height: 100px;
+    width: 65px;
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     cursor: pointer;
     position: relative;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 </style>

@@ -28,7 +28,6 @@
     undoState = [];
     undoIndex = -1;
     game = createGame(seed);
-    calculateWindowWidth();
     addUndoState();
   }
 
@@ -45,16 +44,6 @@
         break;
       }
     }
-  }
-
-  function calculateWindowWidth() {
-    document.documentElement.style.setProperty("--window-width", Math.min(window.innerWidth, 800) / 100 + "px");
-  }
-
-  window.addEventListener("resize", calculateWindowWidth);
-  window.addEventListener("touchend", calculateWindowWidth);
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener("resize", calculateWindowWidth);
   }
 
   function addUndoState(skipAutoMove = false) {
@@ -129,7 +118,7 @@
     flex-direction: column;
 
     .top {
-      width: calc(var(--window-width) * 100);
+      width: 100%;
       padding: 4px 0;
       display: flex;
       flex-direction: row;

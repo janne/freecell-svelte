@@ -1,4 +1,5 @@
 import "./app.css";
+import "./cards.css";
 import Game from "./lib/components/Game.svelte";
 
 window.addEventListener("load", () => {

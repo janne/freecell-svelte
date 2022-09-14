@@ -29,7 +29,6 @@
   .seed {
     height: 20px;
     color: #eee;
-    font-size: 1em;
     font-weight: bold;
     background-color: transparent;
     border: none;
@@ -39,9 +38,8 @@
   .toolbar {
     display: flex;
     flex-direction: row;
-    width: calc(var(--window-width) * 100);
+    width: 100%;
     justify-content: space-between;
-    font-size: calc(min(1em, 16px));
     margin-top: 4px;
 
     button:disabled {

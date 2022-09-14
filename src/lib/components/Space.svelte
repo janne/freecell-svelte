@@ -7,9 +7,8 @@
 <style type="scss">
   .space {
     border: 1px solid #696;
-    width: calc(var(--window-width) * 10.65);
-    height: calc(var(--window-width) * 15.3);
-    padding: calc(var(--window-width) / 4);
-    border-radius: calc(var(--window-width) / 2);
+    width: 65px;
+    height: 100px;
+    border-radius: 8px;
   }
 </style>
