@@ -7,10 +7,8 @@
 </script>
 
 <div class="column">
-  {#each stack as card, i}
-    <div class="card-wrapper" style={`top: calc(5vh * ${i})`}>
-      <Card {card} index={i} onClick={(card) => onClick(card, stack.length - i)} />
-    </div>
+  {#each stack as card, index}
+    <Card {card} onClick={(card) => onClick(card, stack.length - index)} {index} />
   {/each}
 </div>
 
@@ -21,8 +19,5 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-  }
-  .card-wrapper {
-    position: absolute;
   }
 </style>

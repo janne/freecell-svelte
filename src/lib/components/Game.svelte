@@ -121,7 +121,7 @@
     flex-direction: column;
 
     .top {
-      padding: 4px 0;
+      padding: 4px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;

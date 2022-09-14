@@ -8,15 +8,19 @@
 
 <div class="space">
   {#if card != null}
-    <Card {card} {onClick} />
+    <Card {card} {onClick} index={null} />
   {/if}
 </div>
 
 <style type="scss">
   .space {
-    border: 1px solid #696;
-    height: 12vmax;
-    width: 8vmax;
+    outline: 1px solid #696;
+    width: 12vw;
+    height: 16vw;
+    @media (min-width: 800px) {
+      width: 100px;
+      height: 150px;
+    }
     display: flex;
     align-items: center;
     justify-content: center;
