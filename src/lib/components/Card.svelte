@@ -24,7 +24,11 @@
 </script>
 
 <div class={["card", isBlack(card) ? "black" : "red"].join(" ")} on:click|stopPropagation={handleClick}>
-  <img alt={`${rank(card.rank)}${card.suit}`} class="img" src={`/images/cards/${rank(card.rank)}${card.suit}.svg`} />
+  <img
+    alt={`${rank(card.rank)}${card.suit}`}
+    class="img"
+    src={`/images/cards/small/${rank(card.rank)}${card.suit}.svg`}
+  />
 </div>
 
 <style type="scss">
