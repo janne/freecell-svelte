@@ -41,7 +41,7 @@
     flex-direction: row;
     width: calc(var(--window-width) * 100);
     justify-content: space-between;
-    font-size: 1em;
+    font-size: calc(min(1em, 16px));
     margin-top: 4px;
 
     button:disabled {
