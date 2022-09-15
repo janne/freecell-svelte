@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Card } from "../utils/deck";
+  import { cardKey, type Card } from "../utils/deck";
   import { addCard, addCardInHome, createGame, moveStack, removeCardFromGame, type Game } from "../utils/game";
   import Column from "./Column.svelte";
   import Toolbar from "./Toolbar.svelte";
@@ -97,19 +97,19 @@
   />
   <div class="top">
     <div class="freecells">
-      {#each game.freeCells as card}
+      {#each game.freeCells as card, i (card == null ? i : cardKey(card))}
         <Space {card} {onClick} />
       {/each}
     </div>
 
     <div class="homecells">
-      {#each game.homeCells as stack}
+      {#each game.homeCells as stack, i (stack.length > 0 ? cardKey(stack[stack.length - 1]) : i)}
         <Space card={stack.length > 0 ? stack[stack.length - 1] : null} {onClick} />
       {/each}
     </div>
   </div>
   <div class="tableau">
-    {#each game.tableau as stack}
+    {#each game.tableau as stack, i (i)}
       <Column {stack} {onClick} />
     {/each}
   </div>

@@ -43,3 +43,21 @@ export function deckToString(deck: Card[]): String {
 export function isBlack(card: Card): boolean {
   return ["C", "S"].includes(card.suit);
 }
+
+export function cardRank(card: Card): string {
+  switch (card.rank) {
+    case 1:
+      return "A";
+    case 11:
+      return "J";
+    case 12:
+      return "Q";
+    case 13:
+      return "K";
+  }
+  return card.rank.toString();
+}
+
+export function cardKey(card: Card) {
+  return `${cardRank(card)}${card.suit}`;
+}
