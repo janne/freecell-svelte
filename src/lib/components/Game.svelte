@@ -141,7 +141,6 @@
     .tableau {
       display: flex;
       flex-direction: row;
-      gap: 20px;
     }
   }
 </style>
