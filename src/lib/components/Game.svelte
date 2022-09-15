@@ -125,6 +125,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      width: 100%;
 
       .freecells {
         display: flex;
@@ -140,6 +141,7 @@
     .tableau {
       display: flex;
       flex-direction: row;
+      gap: 20px;
     }
   }
 </style>

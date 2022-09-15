@@ -38,7 +38,6 @@
   .toolbar {
     display: flex;
     flex-direction: row;
-    width: 100vw;
     justify-content: space-between;
     margin-top: 4px;
 
