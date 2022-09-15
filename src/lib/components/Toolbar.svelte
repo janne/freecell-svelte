@@ -14,15 +14,15 @@
 </script>
 
 <div class="toolbar">
-  <span>
+  <div class="buttons">
     <button on:click={() => newGame(Math.floor(Math.random() * 1000000))}>New game</button>
     <button disabled={restartDisabled} on:click={restart}>Restart</button>
-  </span>
+  </div>
   <input class="seed" value={seed} type="number" min="1" max="1000000" on:change={handleSeedChange} />
-  <span>
+  <div class="buttons">
     <button disabled={undoDisabled} on:click={undo}>Undo</button>
     <button disabled={redoDisabled} on:click={redo}>Redo</button>
-  </span>
+  </div>
 </div>
 
 <style lang="scss">
@@ -44,8 +44,16 @@
     input {
       font-size: 16px;
     }
-    button {
-      min-height: 44px;
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 4px;
+
+      button {
+        padding: 4px;
+        min-height: 44px;
+        font-size: 14px;
+      }
     }
 
     button:disabled {
