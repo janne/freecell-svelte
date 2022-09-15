@@ -14,16 +14,17 @@
 
 <style type="scss">
   .space {
-    outline: 1px solid #696;
-    width: 12vw;
+    outline: 2px solid #696;
+    width: 11vw;
     height: 16vw;
-    @media (min-width: 800px) {
-      width: 100px;
-      height: 150px;
-    }
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    @media (min-width: 800px) {
+      width: 100px;
+      height: 140px;
+      border-radius: 8px;
+    }
   }
 </style>

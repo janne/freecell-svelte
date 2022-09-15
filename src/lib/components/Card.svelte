@@ -14,12 +14,13 @@
 
 <style type="scss">
   .card {
+    z-index: 1;
     display: flex;
-    width: 12vw;
+    width: 11vw;
     height: 16vw;
     @media (min-width: 800px) {
       width: 100px;
-      height: 150px;
+      height: 140px;
     }
 
     cursor: pointer;
