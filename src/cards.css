@@ -155,7 +155,7 @@
   background-image: url(/images/cards/small/AS.svg);
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 800px) {
   .L2C {
     background-image: url(/images/cards/large/2C.svg);
   }
