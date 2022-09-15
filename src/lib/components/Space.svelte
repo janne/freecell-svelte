@@ -17,9 +17,9 @@
     outline: 1px solid #696;
     width: 12vw;
     height: 16vw;
-    @media (min-width: 800px) {
-      width: 100px;
-      height: 150px;
+    @media (min-width: 1000px) {
+      width: 125px;
+      height: 180px;
     }
     display: flex;
     align-items: center;
