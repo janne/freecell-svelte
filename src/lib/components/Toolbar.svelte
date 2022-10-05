@@ -53,6 +53,7 @@
         padding: 4px;
         min-height: 44px;
         font-size: 14px;
+        touch-action: manipulation;
       }
     }
 
