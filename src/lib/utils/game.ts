@@ -103,10 +103,11 @@ export function addCard(card: Card, game: Game): GameUpdater | null {
 }
 
 export function moveStack(card: Card, game: Game, count: number): GameUpdater | null {
-  const holes =
-    game.tableau.filter((column) => column.length === 0).length + game.freeCells.filter((cell) => cell === null).length;
+  const free_columns = game.tableau.filter((column) => column.length === 0).length;
+  const free_cells = game.freeCells.filter((cell) => cell === null).length;
+  const max_moved = (2 ^ free_columns) * (free_cells + 1);
 
-  if (count > holes + 1) return null;
+  if (count > max_moved) return null;
 
   const column = game.tableau.findIndex((column) => column.includes(card))!;
   const index = game.tableau[column].findIndex((c) => c == card);
@@ -130,7 +131,8 @@ export function moveStack(card: Card, game: Game, count: number): GameUpdater | 
     };
   }
 
-  if (count > holes) return null;
+  const max_moved_to_column = (2 ^ (free_columns - 1)) * (free_cells + 1);
+  if (count > max_moved_to_column) return null;
 
   const j = game.tableau.findIndex((column) => column.length === 0);
   if (j != -1) {
